@@ -1,0 +1,360 @@
+$primary: #296bdf 
+$light: #ffffff
+$dark: #313131
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;700;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@300&display=swap')
+
+html
+    height: 100%
+    .swal2-popup
+        background-color: rgba(0,0,0,.70)
+        font-family: 'Raleway'
+
+body
+    margin: 0
+    padding: 0
+    font-size: 100%    
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%)
+    .over-help        
+        background-color: rgba(0,0,0,0.30)
+        width: 100%
+        height: 100%
+        z-index: 999
+        position: fixed
+        text-align: center
+        .viewer
+            width: 100%
+            height: 100%
+            background-image: url('../image/help2.png')
+            background-position: center
+            background-repeat: no-repeat
+            background-size: contain            
+        .help
+            position: absolute
+            color: $light
+            font-family: 'Raleway'
+            font-weight: 700
+            font-size: 1.4rem
+        .add-task-help
+            right: 100px
+            bottom: 110px
+        .add-song-help
+            left: 4%
+            top: 22%
+        .set-time-help        
+            left: 250px
+            top: 33%
+        .start-help
+            left: 290px
+            top: 20%
+
+    .loader
+        display: block
+        .container
+            display: flex
+            justify-content: center
+            align-items: center
+            div
+                width: 0.5vw
+                height: 0.5vw
+                border-radius: 100%
+                margin: 0.5vw
+                background-image: linear-gradient(145deg, rgba(255,255,255,0.5) 0%, rgba(0,0,0,0) 100%)
+                animation: bounce 1.5s 0.5s linear infinite
+            .p-1
+                background-color: rgba(255,250,255,0.5)
+            .p-2
+                background-color: rgba(204,255,234,0.5)
+                animation-delay: 0.1s
+            .p-3
+                background-color: rgba(255,255,255,0.5)
+                animation-delay: 0.2s
+            .p-4
+                background-color: rgba(255,255,255,0.5)
+                animation-delay: 0.3s
+
+    .invisible
+        display: none !important
+    .visible
+        display: inline-block    
+    .floating-button
+        position: absolute
+        width: 75px
+        height: 75px
+        bottom: 40px
+        right: 40px
+        border-radius: 100px
+        border: none
+        outline: none
+        background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%)
+        color: $light        
+        i
+            font-size: 2rem
+        &:hover            
+            i
+                transform: rotate(45deg)
+    header
+        color: $light
+        .timer
+            display: block
+            text-align: center
+            font-family: 'Raleway', sans-serif
+            font-size: 5rem
+            font-weight: 700            
+            text-shadow: 0px 0px 10px rgba(0,0,0,0.20032)        
+        .inline-player
+            display: block
+            width: 100%
+            text-align: center
+            .info
+                text-align: center       
+                .track-name
+                    font-family: 'Bellota', cursive                    
+                    display: block
+                    .name
+
+            .p-sep
+                border-bottom: 1.5px solid rgba(255, 255, 255, 0.05)
+                width: 40%
+                margin: 1px auto
+                margin-bottom: 5px
+            .controls
+                button                    
+                    background: linear-gradient(to right, rgba(242,246,248,.50) 0%, rgba(216,225,231,.50) 50%, rgba(181,198,208,.50) 51%, rgba(224,239,249,0.50) 100%)
+                    background: linear-gradient(to right, rgba(149,188,222,0.4) 0%, rgba(124,159,214,0.4) 31%, rgba(111,148,208,0.4) 48%, rgba(73,116,189,0.4) 100%)
+                    border: none
+                    outline: none
+                    &:hover                    
+                        background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%)
+                        
+                    i
+                        color: rgba(242,246,248,.80)
+                    .show-c
+                        display: inline-block
+                    .hide-c
+                        display: none
+                    
+            
+    main
+        margin-top: 3.5rem
+        .task-panel
+            margin-left: 10.66%
+            margin-right: 10.66%
+            box-shadow: 0px 0px 2px rgba(0,0 ,0 ,0.5 )            
+            min-height: 450px
+            max-height: 450px
+            height: 450px
+            overflow-x: hidden
+            overflow-y: hidden
+            border-radius: 8px
+            .task-list-header                
+                box-shadow: 0px 0px 4px rgba(0,0,0,0.3)
+                border-top-left-radius: 8px
+                border-bottom-right-radius: 18px
+                min-width: 260px
+                width: 260px
+                padding: 5px
+                font-family: 'Raleway'
+                font-weight: 700
+                text-align: left
+                color: #a0a0a0
+                position: absolute
+                display: flex
+                justify-content: space-between
+                .tag-today-list
+                    flex: auto
+                .actions-today-list
+                    flex: auto
+                    display: flex                    
+                    button
+                        margin-right: 15px                 
+                        background-color: rgba(255,255,255,0.09)
+                        background: linear-gradient(to right, rgba(149,188,222,0.4) 0%, rgba(124,159,214,0.4) 31%, rgba(111,148,208,0.4) 48%, rgba(73,116,189,0.4) 100%)
+                        border: 0px
+                        outline: none
+                        box-shadow: 0px 0px 3px rgba(0,0,0,0.2)
+                        i
+                            color: rgba(255,255,255,0.5)
+                        &:hover
+                            background: linear-gradient(to right, rgba(149,188,222,0.9) 0%, rgba(124,159,214,0.9) 31%, rgba(111,148,208,0.9) 48%, rgba(73,116,189,0.9) 100%)
+            .task-list-body
+                margin-top: 35px
+                height: 418px
+                overflow-x: hidden
+                overflow-y: auto
+                .task-list
+                    padding-left: 2%
+                    padding-right: 2%
+                    .task
+                        display: flex
+                        justify-content: space-between
+                        align-content: center
+                        background-image: linear-gradient(60deg, #29323c 0%, #485563 100%)
+                        border-radius: 10px
+                        padding: 10px
+                        height: 50px
+                        margin-top: 5px
+                        .task-a
+                            flex: auto
+                        .task-action
+                            margin-left: 10px
+                            margin-right: 20px
+                            button
+                                border-radius: 100px
+                                width: 50px
+                                height: 50px
+                                border: none
+                                outline: none
+                                background-color: $dark
+                                box-shadow: 0px 0px 3px rgba(255,255,255,0.4)
+                                &:hover
+                                    border: none
+                                    outline: none
+                                    box-shadow: 0px 0px 3px rgba(255,255,255,0.6)
+                                    background-color: rgba(255,255,255,0.01)
+                                i
+                                    font-size: 1.5rem
+                                .fa-check
+                                    color: green
+                                .fa-times
+                                    color: tomato
+
+                        .task-description
+                            height: 101%
+                            padding-left: 6px
+                            padding-right: 6px
+                            color: $light
+                            font-family: 'Raleway'
+                            overflow-y: auto
+                            overflow-x: hidden                            
+                        .task-priority
+                            margin-left: 10px
+                            margin-right: 20px
+                            width: 150px
+                            padding: 5px
+                            max-width: 80px
+                            span
+                                margin-top: 4px
+                                display: inline-block
+                                width: 100%
+                                text-align: center
+                                color: $light
+                                padding: 5px
+                                border: 1px solid
+                                border-radius: 20px
+                                font-family: 'Raleway'
+                                
+                            .high
+                                background: radial-gradient(ellipse at center, rgba(248,80,50,0.2) 0%, rgba(241,111,92,0.2) 0%, rgba(231,56,39,0.2) 100%)
+                                border-color: tomato
+                                &::after
+                                    content: 'HIGH'
+                            .medium
+                                background: radial-gradient(ellipse at center, rgba(255,175,75,0.21) 0%, rgba(255,146,10,0.31) 100%)
+                                border-color: orange
+                                &::after
+                                    content: 'MEDIUM'
+                            .low
+                                background: radial-gradient(ellipse at center, rgba(73,155,234,0.31) 0%, rgba(32,124,229,0.31) 100%)
+                                border-color: #0476bd
+                                &::after
+                                    content: 'LOW'
+                            .close                                
+                                background: radial-gradient(ellipse at center, rgba(210,255,82,0.2) 0%, rgba(145,232,66,0.4) 100%)                                
+                                border-color: green
+                                &::after
+                                    content: 'CLOSED'
+                        &:hover
+                            background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)
+                                  
+.tdmodal
+    .task-form
+        padding: 15px
+        font-family: 'Raleway'
+        color: $light
+        text-align: left
+        label
+            width: 80%
+            display: block            
+            margin: 1px auto
+        .control
+            padding: 10px
+            width: 80%
+            display: block
+            border: 0px
+            outline: 0px
+            margin: 5px auto
+            color: $light
+            background: rgba(0,0,0,0.1)            
+            border-radius: 10px
+            box-shadow: 0px 0px 4px rgba(0,0 ,0 ,0.2 )
+            font-family: 'Raleway'
+        .task-priority-control            
+            option
+                color: $dark
+                font-weight: 700
+                background-color: gray
+        .form-action
+            text-align: right
+            background: rgba(0,0 ,0 ,0 )            
+            border-radius: 0pc
+            box-shadow: 0px 0px 4px rgba(0,0 ,0 ,0 )
+            button
+                border-radius: 10px
+                height: 25px
+                outline: none
+                border: none
+                font-family: 'Raleway'
+                color: $light
+                font-weight: 700
+            .add
+                background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%)
+                &:hover
+                    background-image: linear-gradient(to top, #04befe  0%, #4481eb 100%)
+            .cancel
+                background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%)
+                &:hover
+                    background-image: linear-gradient(to top, #ffb199 0%, #ff0844 100%)
+                    
+#songsModal
+    .task-form
+        .error
+            height: 1px
+            .label_error
+                margin-left: 50px
+                color: tomato
+                display: none
+        .link-list
+            .link
+                overflow: hidden
+                list-style-type: none
+                a
+                    color: #7d8fff
+                button
+                    background: transparent
+                    border: none
+                    outline: none
+                    color: #cc948e
+                    transition: transform 0.3s ease-in
+                    &:hover
+                        i
+                            font-size: 1.2em
+                            transform: rotate(45deg)                            
+
+
+        
+@keyframes bounce
+    0%
+        transform: scale(1)
+        filter: blur(0px)
+    25%
+        transform: scale(0.6)
+        filter: blur(3px)
+    50%
+
+    75%
+        filter: blur(3px)
+        transform: scale(1.4)
+    100%
+        

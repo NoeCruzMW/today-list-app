@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bellota:wght@300&display=swap");
+html {
+  height: 100%; }
+  html .swal2-popup {
+    background-color: rgba(0, 0, 0, 0.7);
+    font-family: "Raleway"; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); }
+  body .over-help {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: fixed;
+    text-align: center; }
+    body .over-help .viewer {
+      width: 100%;
+      height: 100%;
+      background-image: url("../image/help2.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain; }
+    body .over-help .help {
+      position: absolute;
+      color: #ffffff;
+      font-family: "Raleway";
+      font-weight: 700;
+      font-size: 1.4rem; }
+    body .over-help .add-task-help {
+      right: 100px;
+      bottom: 110px; }
+    body .over-help .add-song-help {
+      left: 4%;
+      top: 22%; }
+    body .over-help .set-time-help {
+      left: 250px;
+      top: 33%; }
+    body .over-help .start-help {
+      left: 290px;
+      top: 20%; }
+  body .loader {
+    display: block; }
+    body .loader .container {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      body .loader .container div {
+        width: 0.5vw;
+        height: 0.5vw;
+        border-radius: 100%;
+        margin: 0.5vw;
+        background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+        animation: bounce 1.5s 0.5s linear infinite; }
+      body .loader .container .p-1 {
+        background-color: rgba(255, 250, 255, 0.5); }
+      body .loader .container .p-2 {
+        background-color: rgba(204, 255, 234, 0.5);
+        animation-delay: 0.1s; }
+      body .loader .container .p-3 {
+        background-color: rgba(255, 255, 255, 0.5);
+        animation-delay: 0.2s; }
+      body .loader .container .p-4 {
+        background-color: rgba(255, 255, 255, 0.5);
+        animation-delay: 0.3s; }
+  body .invisible {
+    display: none !important; }
+  body .visible {
+    display: inline-block; }
+  body .floating-button {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+    color: #ffffff; }
+    body .floating-button i {
+      font-size: 2rem; }
+    body .floating-button:hover i {
+      transform: rotate(45deg); }
+  body header {
+    color: #ffffff; }
+    body header .timer {
+      display: block;
+      text-align: center;
+      font-family: "Raleway", sans-serif;
+      font-size: 5rem;
+      font-weight: 700;
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.20032); }
+    body header .inline-player {
+      display: block;
+      width: 100%;
+      text-align: center; }
+      body header .inline-player .info {
+        text-align: center; }
+        body header .inline-player .info .track-name {
+          font-family: "Bellota", cursive;
+          display: block; }
+      body header .inline-player .p-sep {
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.05);
+        width: 40%;
+        margin: 1px auto;
+        margin-bottom: 5px; }
+      body header .inline-player .controls button {
+        background: linear-gradient(to right, rgba(242, 246, 248, 0.5) 0%, rgba(216, 225, 231, 0.5) 50%, rgba(181, 198, 208, 0.5) 51%, rgba(224, 239, 249, 0.5) 100%);
+        background: linear-gradient(to right, rgba(149, 188, 222, 0.4) 0%, rgba(124, 159, 214, 0.4) 31%, rgba(111, 148, 208, 0.4) 48%, rgba(73, 116, 189, 0.4) 100%);
+        border: none;
+        outline: none; }
+        body header .inline-player .controls button:hover {
+          background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%); }
+        body header .inline-player .controls button i {
+          color: rgba(242, 246, 248, 0.8); }
+        body header .inline-player .controls button .show-c {
+          display: inline-block; }
+        body header .inline-player .controls button .hide-c {
+          display: none; }
+  body main {
+    margin-top: 3.5rem; }
+    body main .task-panel {
+      margin-left: 10.66%;
+      margin-right: 10.66%;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+      min-height: 450px;
+      max-height: 450px;
+      height: 450px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      border-radius: 8px; }
+      body main .task-panel .task-list-header {
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+        border-top-left-radius: 8px;
+        border-bottom-right-radius: 18px;
+        min-width: 260px;
+        width: 260px;
+        padding: 5px;
+        font-family: "Raleway";
+        font-weight: 700;
+        text-align: left;
+        color: #a0a0a0;
+        position: absolute;
+        display: flex;
+        justify-content: space-between; }
+        body main .task-panel .task-list-header .tag-today-list {
+          flex: auto; }
+        body main .task-panel .task-list-header .actions-today-list {
+          flex: auto;
+          display: flex; }
+          body main .task-panel .task-list-header .actions-today-list button {
+            margin-right: 15px;
+            background-color: rgba(255, 255, 255, 0.09);
+            background: linear-gradient(to right, rgba(149, 188, 222, 0.4) 0%, rgba(124, 159, 214, 0.4) 31%, rgba(111, 148, 208, 0.4) 48%, rgba(73, 116, 189, 0.4) 100%);
+            border: 0px;
+            outline: none;
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2); }
+            body main .task-panel .task-list-header .actions-today-list button i {
+              color: rgba(255, 255, 255, 0.5); }
+            body main .task-panel .task-list-header .actions-today-list button:hover {
+              background: linear-gradient(to right, rgba(149, 188, 222, 0.9) 0%, rgba(124, 159, 214, 0.9) 31%, rgba(111, 148, 208, 0.9) 48%, rgba(73, 116, 189, 0.9) 100%); }
+      body main .task-panel .task-list-body {
+        margin-top: 35px;
+        height: 418px;
+        overflow-x: hidden;
+        overflow-y: auto; }
+        body main .task-panel .task-list-body .task-list {
+          padding-left: 2%;
+          padding-right: 2%; }
+          body main .task-panel .task-list-body .task-list .task {
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+            border-radius: 10px;
+            padding: 10px;
+            height: 50px;
+            margin-top: 5px; }
+            body main .task-panel .task-list-body .task-list .task .task-a {
+              flex: auto; }
+            body main .task-panel .task-list-body .task-list .task .task-action {
+              margin-left: 10px;
+              margin-right: 20px; }
+              body main .task-panel .task-list-body .task-list .task .task-action button {
+                border-radius: 100px;
+                width: 50px;
+                height: 50px;
+                border: none;
+                outline: none;
+                background-color: #313131;
+                box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.4); }
+                body main .task-panel .task-list-body .task-list .task .task-action button:hover {
+                  border: none;
+                  outline: none;
+                  box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.6);
+                  background-color: rgba(255, 255, 255, 0.01); }
+                body main .task-panel .task-list-body .task-list .task .task-action button i {
+                  font-size: 1.5rem; }
+                body main .task-panel .task-list-body .task-list .task .task-action button .fa-check {
+                  color: green; }
+                body main .task-panel .task-list-body .task-list .task .task-action button .fa-times {
+                  color: tomato; }
+            body main .task-panel .task-list-body .task-list .task .task-description {
+              height: 101%;
+              padding-left: 6px;
+              padding-right: 6px;
+              color: #ffffff;
+              font-family: "Raleway";
+              overflow-y: auto;
+              overflow-x: hidden; }
+            body main .task-panel .task-list-body .task-list .task .task-priority {
+              margin-left: 10px;
+              margin-right: 20px;
+              width: 150px;
+              padding: 5px;
+              max-width: 80px; }
+              body main .task-panel .task-list-body .task-list .task .task-priority span {
+                margin-top: 4px;
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                color: #ffffff;
+                padding: 5px;
+                border: 1px solid;
+                border-radius: 20px;
+                font-family: "Raleway"; }
+              body main .task-panel .task-list-body .task-list .task .task-priority .high {
+                background: radial-gradient(ellipse at center, rgba(248, 80, 50, 0.2) 0%, rgba(241, 111, 92, 0.2) 0%, rgba(231, 56, 39, 0.2) 100%);
+                border-color: tomato; }
+                body main .task-panel .task-list-body .task-list .task .task-priority .high::after {
+                  content: "HIGH"; }
+              body main .task-panel .task-list-body .task-list .task .task-priority .medium {
+                background: radial-gradient(ellipse at center, rgba(255, 175, 75, 0.21) 0%, rgba(255, 146, 10, 0.31) 100%);
+                border-color: orange; }
+                body main .task-panel .task-list-body .task-list .task .task-priority .medium::after {
+                  content: "MEDIUM"; }
+              body main .task-panel .task-list-body .task-list .task .task-priority .low {
+                background: radial-gradient(ellipse at center, rgba(73, 155, 234, 0.31) 0%, rgba(32, 124, 229, 0.31) 100%);
+                border-color: #0476bd; }
+                body main .task-panel .task-list-body .task-list .task .task-priority .low::after {
+                  content: "LOW"; }
+              body main .task-panel .task-list-body .task-list .task .task-priority .close {
+                background: radial-gradient(ellipse at center, rgba(210, 255, 82, 0.2) 0%, rgba(145, 232, 66, 0.4) 100%);
+                border-color: green; }
+                body main .task-panel .task-list-body .task-list .task .task-priority .close::after {
+                  content: "CLOSED"; }
+            body main .task-panel .task-list-body .task-list .task:hover {
+              background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%); }
+
+.tdmodal .task-form {
+  padding: 15px;
+  font-family: "Raleway";
+  color: #ffffff;
+  text-align: left; }
+  .tdmodal .task-form label {
+    width: 80%;
+    display: block;
+    margin: 1px auto; }
+  .tdmodal .task-form .control {
+    padding: 10px;
+    width: 80%;
+    display: block;
+    border: 0px;
+    outline: 0px;
+    margin: 5px auto;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    font-family: "Raleway"; }
+  .tdmodal .task-form .task-priority-control option {
+    color: #313131;
+    font-weight: 700;
+    background-color: gray; }
+  .tdmodal .task-form .form-action {
+    text-align: right;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 0pc;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0); }
+    .tdmodal .task-form .form-action button {
+      border-radius: 10px;
+      height: 25px;
+      outline: none;
+      border: none;
+      font-family: "Raleway";
+      color: #ffffff;
+      font-weight: 700; }
+    .tdmodal .task-form .form-action .add {
+      background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%); }
+      .tdmodal .task-form .form-action .add:hover {
+        background-image: linear-gradient(to top, #04befe 0%, #4481eb 100%); }
+    .tdmodal .task-form .form-action .cancel {
+      background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%); }
+      .tdmodal .task-form .form-action .cancel:hover {
+        background-image: linear-gradient(to top, #ffb199 0%, #ff0844 100%); }
+
+#songsModal .task-form .error {
+  height: 1px; }
+  #songsModal .task-form .error .label_error {
+    margin-left: 50px;
+    color: tomato;
+    display: none; }
+#songsModal .task-form .link-list .link {
+  overflow: hidden;
+  list-style-type: none; }
+  #songsModal .task-form .link-list .link a {
+    color: #7d8fff; }
+  #songsModal .task-form .link-list .link button {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #cc948e;
+    transition: transform 0.3s ease-in; }
+    #songsModal .task-form .link-list .link button:hover i {
+      font-size: 1.2em;
+      transform: rotate(45deg); }
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    filter: blur(0px); }
+  25% {
+    transform: scale(0.6);
+    filter: blur(3px); }
+  50%;
+  75% {
+    filter: blur(3px);
+    transform: scale(1.4); }
+  100%; }
+
+/*# sourceMappingURL=today-list.css.map */
