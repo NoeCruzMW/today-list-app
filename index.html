@@ -1,166 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Small app where you can add your todo list, set a time limit for todo it and add your favorit YouTube music."
+    />
+    <meta name="keywords" content="Todo List, today list" />
+    <meta name="author" content="Noe Cruz | Zurck'z 2020" />
     <title>.:.: Today List :.:.</title>
-    <link rel="stylesheet" href="css/today-list.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css">
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="css/today-list.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css"
+    />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
     <style>
-        .ct::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-            border-radius: 0px;
-            background-color: #F5F5F5;
-        }
-        
-        .ct::-webkit-scrollbar {
-            width: 4px;
-            background-color: #F5F5F5;
-        }
-        
-        .ct::-webkit-scrollbar-thumb {
-            border-radius: 0px;
-            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-            background-color: #555;
-        }
+      .ct::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 0px;
+        background-color: #f5f5f5;
+      }
+
+      .ct::-webkit-scrollbar {
+        width: 4px;
+        background-color: #f5f5f5;
+      }
+
+      .ct::-webkit-scrollbar-thumb {
+        border-radius: 0px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #555;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="over-help invisible" id="help-viewer">
-        <div class="viewer">
-
-        </div>
+      <div class="viewer"></div>
     </div>
     <button id="fabAdTask" class="floating-button">
-        <i class="fa fa-plus" aria-hidden="true"></i>
+      <i class="fa fa-plus" aria-hidden="true"></i>
     </button>
     <header class="header">
-        <span class="timer" id="counterDown">--:--:--</span>
-        <div class="inline-player invisible" id="player-surface">
-            <div class="info">
-                <span class="track-name" id="track-name">
-                    <marquee direction="left" width="30%">
-                        <small id="track-name" class="name animate__fadeOut">Paty cantu</small>
-                    </marquee>
-                </span>
-                <div class="loader invisible" id="loader">
-                    <div class="container">
-                        <div class="p-1"></div>
-                        <div class="p-2"></div>
-                        <div class="p-3"></div>
-                        <div class="p-4"></div>
-                    </div>
-                </div>
+      <span class="timer" id="counterDown">--:--:--</span>
+      <div class="inline-player invisible" id="player-surface">
+        <div class="info">
+          <span class="track-name" id="track-name">
+            <marquee direction="left" width="30%">
+              <small id="track-name" class="name animate__fadeOut"
+                >Paty cantu</small
+              >
+            </marquee>
+          </span>
+          <div class="loader invisible" id="loader">
+            <div class="container">
+              <div class="p-1"></div>
+              <div class="p-2"></div>
+              <div class="p-3"></div>
+              <div class="p-4"></div>
             </div>
-            <div class="p-sep"></div>
-            <div class="controls">
-                <button type="button" class="back" onclick="back()">
-                    <i class="fa fa-backward" aria-hidden="true"></i>
-                </button>
-                <button type="button" class="play" onclick="toggle()">
-                    <i id="c-play" class="fa fa-play" aria-hidden="true"></i>
-                    <i id="c-pause" class="fa fa-pause hide-c" aria-hidden="true"></i>
-                </button>
-                <button type="button" class="forward" onclick="next()">
-                    <i class="fa fa-forward" aria-hidden="true"></i>
-                </button>
-            </div>
+          </div>
         </div>
+        <div class="p-sep"></div>
+        <div class="controls">
+          <button type="button" class="back" onclick="back()">
+            <i class="fa fa-backward" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="play" onclick="toggle()">
+            <i id="c-play" class="fa fa-play" aria-hidden="true"></i>
+            <i id="c-pause" class="fa fa-pause hide-c" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="forward" onclick="next()">
+            <i class="fa fa-forward" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
     </header>
     <main>
-        <section class="task-panel">
-            <div class="task-list-header">
-                <div class="tag-today-list" title="Today list">
-                    &nbsp;TO DO
-                </div>
-                <div class="actions-today-list" title="Today list">
-                    &nbsp;
-                    <button onclick="showSettings()" class="settings-action" title="Set time and other things!">
-                        <i class="fa fa-cogs"></i>
-                    </button>
-                    <button onclick="showSongs()" class="music-action" title="Listen only to your music!">
-                        <i class="fa fa-music" aria-hidden="true"></i>
-                    </button>
-                    <button onclick="start()" class="start-action" title="Start, hurry up with your homework">
-                        <i class="fa fa-play" aria-hidden="true"></i>
-                    </button>
-                    <a href="https://web.facebook.com/zurckz2018/" target="_blank">
-                        <button class="social-action" title="Start, hurry up with your homework">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </button>
-                    </a>
-                    <a href="https://github.com/NoeCruzMW" target="_blank">
-                        <button class="social-action" title="Start, hurry up with your homework">
-                            <i class="fa fa-github" aria-hidden="true"></i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="task-list-body ct">
-                <ul class="task-list" id="task-list">
-                </ul>
-            </div>
-        </section>
+      <section class="task-panel">
+        <div class="task-list-header">
+          <div class="tag-today-list" title="Today list">
+            &nbsp;TO DO
+          </div>
+          <div class="actions-today-list" title="Today list">
+            &nbsp;
+            <button
+              onclick="showSettings()"
+              class="settings-action"
+              title="Set time and other things!"
+            >
+              <i class="fa fa-cogs"></i>
+            </button>
+            <button
+              onclick="showSongs()"
+              class="music-action"
+              title="Listen only to your music!"
+            >
+              <i class="fa fa-music" aria-hidden="true"></i>
+            </button>
+            <button
+              onclick="start()"
+              class="start-action"
+              title="Start, hurry up with your homework"
+            >
+              <i class="fa fa-play" aria-hidden="true"></i>
+            </button>
+            <a href="https://web.facebook.com/zurckz2018/" target="_blank">
+              <button
+                class="social-action"
+                title="Start, hurry up with your homework"
+              >
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </button>
+            </a>
+            <a href="https://github.com/NoeCruzMW" target="_blank">
+              <button
+                class="social-action"
+                title="Start, hurry up with your homework"
+              >
+                <i class="fa fa-github" aria-hidden="true"></i>
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="task-list-body ct">
+          <ul class="task-list" id="task-list"></ul>
+        </div>
+      </section>
     </main>
     <div id="player"></div>
-    <div class="tdmodal" id="modal" data-iziModal-fullscreen="true" data-iziModal-title="Today List" data-iziModal-subtitle="Add Task" data-iziModal-icon="fa fa-plus" style="background-color: #485461;
-    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);">
-        <div class="task-form">
-            <form id="task-form" onsubmit="saveTask(event)">
-                <label for="description">Description</label>
-                <textarea class="control task-description-control" placeholder="Description" name="input-description" id="input-description" cols="30" rows="10" required></textarea>
-                <label for="description">Priority</label>
-                <select name="input-priority" id="input-priority" class="control task-priority-control" required>
-                    <option value="0">High</option>
-                    <option value="1">Medium</option>
-                    <option value="2">Low</option>
-                </select>
-                <div class="control form-action">
-                    <button onclick="cancelAddTask()" id="btnCancelForm" class="cancel" type="reset">Cancel</button>
-                    <button id="btnSave" class="add" type="submit">Add</button>
-                </div>
-            </form>
-        </div>
+    <div
+      class="tdmodal"
+      id="modal"
+      data-iziModal-fullscreen="true"
+      data-iziModal-title="Today List"
+      data-iziModal-subtitle="Add Task"
+      data-iziModal-icon="fa fa-plus"
+      style="
+        background-color: #485461;
+        background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+      "
+    >
+      <div class="task-form">
+        <form id="task-form" onsubmit="saveTask(event)">
+          <label for="description">Description</label>
+          <textarea
+            class="control task-description-control"
+            placeholder="Description"
+            name="input-description"
+            id="input-description"
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+          <label for="description">Priority</label>
+          <select
+            name="input-priority"
+            id="input-priority"
+            class="control task-priority-control"
+            required
+          >
+            <option value="0">High</option>
+            <option value="1">Medium</option>
+            <option value="2">Low</option>
+          </select>
+          <div class="control form-action">
+            <button
+              onclick="cancelAddTask()"
+              id="btnCancelForm"
+              class="cancel"
+              type="reset"
+            >
+              Cancel
+            </button>
+            <button id="btnSave" class="add" type="submit">Add</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="tdmodal" id="settingsModal" data-iziModal-fullscreen="true" data-iziModal-title="Today List" data-iziModal-subtitle="Assign the time you have" data-iziModal-icon="fa fa-plus" style="background-color: #485461;
-    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);">
-        <div class="task-form">
-            <form id="task-form" onsubmit="setTime(event)">
-                <label for="description">Hours </label>
-                <input type="number" class="control" min="1" max="100" id="input-time" required>
-                <div class="control form-action">
-                    <button onclick="closeModal('settingsModal')" id="btnCancelForm" class="cancel" type="reset">Cancel</button>
-                    <button id="btnSave" class="add" type="submit">Ok</button>
-                </div>
-            </form>
-        </div>
+    <div
+      class="tdmodal"
+      id="settingsModal"
+      data-iziModal-fullscreen="true"
+      data-iziModal-title="Today List"
+      data-iziModal-subtitle="Assign the time you have"
+      data-iziModal-icon="fa fa-plus"
+      style="
+        background-color: #485461;
+        background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+      "
+    >
+      <div class="task-form">
+        <form id="task-form" onsubmit="setTime(event)">
+          <label for="description">Hours </label>
+          <input
+            type="number"
+            class="control"
+            min="1"
+            max="100"
+            id="input-time"
+            required
+          />
+          <div class="control form-action">
+            <button
+              onclick="closeModal('settingsModal')"
+              id="btnCancelForm"
+              class="cancel"
+              type="reset"
+            >
+              Cancel
+            </button>
+            <button id="btnSave" class="add" type="submit">Ok</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="tdmodal" id="songsModal" data-iziModal-fullscreen="true" data-iziModal-title="Today List" data-iziModal-subtitle="Add your favorite music" data-iziModal-icon="fa fa-plus" style="background-color: #485461;
-    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);">
-        <div class="task-form">
-            <form id="task-form" onsubmit="saveTask(event)">
-                <input type="url" class="control" id="input-new-link" required placeholder="Paste youtube video id: 'GpOcEcbycfo'">
-                <div class="error">
-                    <small class="label_error" id="addError">Wrong URL</small>
-                </div>
-                <div class="control form-action">
-                    <button id="btnSave" class="add" type="button" onclick="addSong()">Add</button>
-                </div>
+    <div
+      class="tdmodal"
+      id="songsModal"
+      data-iziModal-fullscreen="true"
+      data-iziModal-title="Today List"
+      data-iziModal-subtitle="Add your favorite music"
+      data-iziModal-icon="fa fa-plus"
+      style="
+        background-color: #485461;
+        background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+      "
+    >
+      <div class="task-form">
+        <form id="task-form" onsubmit="saveTask(event)">
+          <input
+            type="url"
+            class="control"
+            id="input-new-link"
+            required
+            placeholder="Paste youtube video id: 'GpOcEcbycfo'"
+          />
+          <div class="error">
+            <small class="label_error" id="addError">Wrong URL</small>
+          </div>
+          <div class="control form-action">
+            <button id="btnSave" class="add" type="button" onclick="addSong()">
+              Add
+            </button>
+          </div>
 
-                <label for="description">ID's</label>
-                <ul class="control link-list" id="songList">
-                </ul>
-            </form>
-        </div>
+          <label for="description">ID's</label>
+          <ul class="control link-list" id="songList"></ul>
+        </form>
+      </div>
     </div>
-    <div id="successModal" data-iziModal-fullscreen="false" data-iziModal-title="Today List" data-iziModal-subtitle="Successful operation!" data-iziModal-icon="fa fa-check">
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <div
+      id="successModal"
+      data-iziModal-fullscreen="false"
+      data-iziModal-title="Today List"
+      data-iziModal-subtitle="Successful operation!"
+      data-iziModal-icon="fa fa-check"
+    ></div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -169,6 +282,5 @@
     <script src="js/ZurckzTodayList.js"></script>
     <script src="js/ZurckzPlayer.js"></script>
     <script src="js/today-list.js"></script>
-</body>
-
+  </body>
 </html>
