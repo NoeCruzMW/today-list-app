@@ -1,4 +1,4 @@
-css/main.sass
+/css/main.sass
 .idea
 *.sass-cache
 .vscode/*

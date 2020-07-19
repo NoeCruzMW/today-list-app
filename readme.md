@@ -1,4 +1,4 @@
-# Today List | Todo List
+# Today List | Todo List 🚀️
 
 Small app where you can add your todo list, set a time limit for todo it and add your favorit YouTube music.
 
@@ -6,26 +6,26 @@ If you don't finish your tasks in the set time, your to-do list will be destroye
 
 ## Functionalities (completed)
 
-* User can add tasks to list
-* User can specify the prority of task
+* User can add tasks to list ✔️
+* User can specify the prority of task ✔️
   * High
   * Medium
   * Lower
-* User can change task status
+* User can change task status ✔️
   * Closed
   * Removed
-* User can set limit time for todo tasks
+* User can set limit time for todo tasks ✔️
   * Hours
-* Can add your favorit YouTube music
+* Can add your favorit YouTube music ✔️
   * Video id
-* User can start the timer
-* Basic controls media player
+* User can start the timer ✔️
+* Basic controls media player ✔️
   * previus
   * play/pause
   * next
-* Tasks are kept even if the tab or browser is closed
+* Tasks are kept even if the tab or browser is closed ✔️
   * LocalStorage
-* The list its will be destroyed if the time limit is finished
+* The list its will be destroyed if the time limit is finished ✔️
 
 For people who are learnign HTML5 (html, css3 y js) can comunicate to collaborate with new features.
 
